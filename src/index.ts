@@ -29,6 +29,14 @@ class DSMS {
         });
     }
 
+
+    /**
+     * Sends an SMS message.
+     * @param {SMSParams} params - SMS parameters.
+     * @returns {Promise<DSMSAxiosResponse>} - Promise that resolves to an Axios response.
+     * @throws {Error} - If the parameters are invalid.
+     * @throws {Error} - If the request fails.
+     */
     async sendSMS(params: SMSParams): Promise<DSMSAxiosResponse> {
         if (!params.number || !params.signature || !params.content) {
             throw new Error("Missing parameters");
@@ -45,6 +53,13 @@ class DSMS {
         }
     }
 
+    /**
+     * Sends an authentication SMS message.
+     * @param {AuthSMSParams} params - Authentication SMS parameters.
+     * @returns {Promise<DSMSAxiosResponse>} - Promise that resolves to an Axios response.
+     * @throws {Error} - If the parameters are invalid.
+     * @throws {Error} - If the request fails.
+     */
     async sendAuthSMS(params: AuthSMSParams): Promise<DSMSAxiosResponse> {
         if (!params.number || !params.service) {
             throw new Error("Missing parameters");
@@ -61,6 +76,13 @@ class DSMS {
         }
     }
 
+    /**
+     * Verifies an authentication SMS message.
+     * @param {VerifyAuthSMSParams} params - Verification parameters.
+     * @returns {Promise<DSMSAxiosResponse>} - Promise that resolves to an Axios response.
+     * @throws {Error} - If the parameters are invalid.
+     * @throws {Error} - If the request fails.
+     */
     async verifyAuthSMS(params: VerifyAuthSMSParams): Promise<DSMSAxiosResponse> {
         if (!params.number || !params.service || !params.otp) {
             throw new Error("Missing parameters");
